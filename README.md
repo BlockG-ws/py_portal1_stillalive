@@ -2,13 +2,13 @@
 
 ## 使用条件
 
-`still_alive_credit.py` 脚本使用 Python 3，以下提到的 `pip` 多数情况下对应 `pip3` 命令
+`still_alive_credit_legacy.py` 脚本使用 Python 3（推荐使用 python 3.9，如果没有，推荐使用 `micromamba` 并用 `env.yml` 创建一个虚拟环境），以下提到的 `pip` 多数情况下对应 `pip3` 命令
 以调用 Python 3 的 `pip` 组件。
 
 Windows 下需要使用 Windows terminal，MinTTY 等支持 ANSI 终端转义序列的终端模拟器。
 
-为了播放音乐，需要用 `pip` 安装 `playsound`。`playground` 在 Linux 下依赖 
-`python-gobject` 软件包（Ubuntu 已默认安装）。在 MacOS 下还需要用 `pip` 安装 `PyObjC`。
+为了播放音乐，需要用 `pip` 安装 `playsound`。`playsound` 在 Linux 下依赖 
+`pygobject` 包（可以使用 pip 安装它）。在 MacOS 下还需要用 `pip` 安装 `PyObjC`。
 
 ## 使用方法
 
@@ -38,14 +38,14 @@ in text terminal.
 
 ## Dependency
 
-`still_alive_credit.py` is written with Python 3. In most cases the following
+`still_alive_credit_legacy.py` is written with Python 3 (Python 3.9 is recommended, you can create a virtual env with `micromamba` and `env.yml`). In most cases the following
 `pip` should be `pip3` command.
 
 In Windows system, you need a teminal emulator supporting ANSI escape sequences
 like Windows Terminal, MinTTY, Cmder or ConEmu。
 
 For playing music, you need install `playsound` with `pip`. In Linux `playsound`
-depends on `python-gobject` (default installed in Ubuntu). In MacOS you also need
+depends on `pygobject`(`python-gobject` for systemwide install) (you can use pip to install). In MacOS you also need
 to use `pip` to install `PyObjC`.
 
 ## Usage
