@@ -105,14 +105,14 @@ def end_draw():
 def move(x, y, update_cursor=True, mutex=True):
     global cursor_x, cursor_y
     global print_lock
-    if(mutex):
+    if mutex:
         print_lock.acquire()
     print("\033[%d;%dH" % (y, x), end='')
     sys.stdout.flush()
-    if(update_cursor):
+    if update_cursor:
         cursor_x = x
         cursor_y = y
-    if(mutex):
+    if mutex:
         print_lock.release()
 
 
@@ -134,7 +134,7 @@ def _print(str, newline=True):
     global cursor_x, cursor_y
     global print_lock
     print_lock.acquire()
-    if(newline):
+    if newline:
         print(str)
         cursor_x = 1
         cursor_y = cursor_y + 1
@@ -144,7 +144,7 @@ def _print(str, newline=True):
     print_lock.release()
 
 
-class lyric:
+class Lyric:
     def __init__(self, _words, _time, _interval, _mode):
         '''
         Interval: -1 means to calculate based on last  
@@ -394,139 +394,139 @@ ascii_art = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10]
 
 lyrics = [
     ##########  Page 1  ##########
-    lyric("Forms FORM-29827281-12:",            0,      -1,   0),
-    lyric("Test Assessment Report",             200,    -1,   0),
-    lyric("\00\00\00\00\00\00\00",              400,    - \
-          1,   0),  # Keep flushing the buffer
-    lyric("",                                   710,    0,    4),  # Music start
-    lyric("This was a triumph.",                730,    2,    0),
-    lyric("",                                   930,    0,    5),  # Credits start
-    lyric("I'm making a note here:",            1123,   2,    0),
-    lyric("HUGE SUCCESS.",                      1347,   1.7,  0),
-    lyric("It's hard to overstate",             1627,   -1,   0),
-    lyric("my satisfaction.",                   1873,   2.6,  0),
-    lyric("Aperture Science",                   2350,   1.8,  0),
-    lyric(0,                                    2350,   0,    2),  # ASCII 1
-    lyric("We do what we must",                 2733,   1.6,  0),
-    lyric("because we can.",                    2910,   1.5,  0),
-    lyric("For the good of all of us.",         3237,   -1,   0),
-    lyric(1,                                    3500,   0,    2),  # ASCII 2
-    lyric("Except the ones who are dead.",      3567,   -1,   0),
-    lyric("",                                   3717,   0.05, 0),
-    lyric(0,                                    3717,   0,    2),  # ASCII 1
-    lyric("But there's no sense crying",        3787,   -1,   0),
-    lyric("over every mistake.",                3973,   1.77, 0),
-    lyric("You just keep on trying",            4170,   -1,   0),
-    lyric("till you run out of cake.",          4370,   -1,   0),
-    lyric(2,                                    4500,   0,    2),  # ASCII 3
-    lyric("And the Science gets done.",         4570,   -1,   0),
-    lyric("And you make a neat gun.",           4767,   -1,   0),
-    lyric(0,                                    4903,   0,    2),  # ASCII 1
-    lyric("For the people who are",             4973,   -1,   0),
-    lyric("still alive.",                       5110,   1.6,  1),
+    Lyric("Forms FORM-29827281-12:", 0, -1, 0),
+    Lyric("Test Assessment Report", 200, -1, 0),
+    Lyric("\00\00\00\00\00\00\00", 400, - \
+          1, 0),  # Keep flushing the buffer
+    Lyric("", 710, 0, 4),  # Music start
+    Lyric("This was a triumph.", 730, 2, 0),
+    Lyric("", 930, 0, 5),  # Credits start
+    Lyric("I'm making a note here:", 1123, 2, 0),
+    Lyric("HUGE SUCCESS.", 1347, 1.7, 0),
+    Lyric("It's hard to overstate", 1627, -1, 0),
+    Lyric("my satisfaction.", 1873, 2.6, 0),
+    Lyric("Aperture Science", 2350, 1.8, 0),
+    Lyric(0, 2350, 0, 2),  # ASCII 1
+    Lyric("We do what we must", 2733, 1.6, 0),
+    Lyric("because we can.", 2910, 1.5, 0),
+    Lyric("For the good of all of us.", 3237, -1, 0),
+    Lyric(1, 3500, 0, 2),  # ASCII 2
+    Lyric("Except the ones who are dead.", 3567, -1, 0),
+    Lyric("", 3717, 0.05, 0),
+    Lyric(0, 3717, 0, 2),  # ASCII 1
+    Lyric("But there's no sense crying", 3787, -1, 0),
+    Lyric("over every mistake.", 3973, 1.77, 0),
+    Lyric("You just keep on trying", 4170, -1, 0),
+    Lyric("till you run out of cake.", 4370, -1, 0),
+    Lyric(2, 4500, 0, 2),  # ASCII 3
+    Lyric("And the Science gets done.", 4570, -1, 0),
+    Lyric("And you make a neat gun.", 4767, -1, 0),
+    Lyric(0, 4903, 0, 2),  # ASCII 1
+    Lyric("For the people who are", 4973, -1, 0),
+    Lyric("still alive.", 5110, 1.6, 1),
 
     ##########  Page 2  ##########
-    lyric(0,                                    5353,
-          0,    3),  # Clear lyrics
-    lyric("Forms FORM-55551-5:",                5413,   -1,   0),
-    lyric("Personnel File Addendum:",           5477,   1.13, 0),
-    lyric("",                                   5650,   0.05, 0),
-    lyric("Dear <<Subject Name Here>>,",        5650,   -1,   0),
-    lyric("",                                   5900,   -1,   0),
-    lyric("I'm not even angry.",                5900,   1.86, 0),
-    lyric("I'm being ",                         6320,   -1,   1),
-    lyric("so ",                                6413,   -1,   1),
-    lyric("sincere right now.",                 6470,   1.9,  0),
-    lyric("Even though you broke ",             6827,   -1,   1),
-    lyric(3,                                    7020,   0,    2),  # ASCII 4
-    lyric("my heart.",                          7090,   -1,   0),
-    lyric("And killed me.",                     7170,   1.43, 0),
-    lyric(4,                                    7300,   0,    2),  # ASCII 5
-    lyric("And tore me to pieces.",             7500,   1.83, 0),
-    lyric("And threw every piece ",             7900,   -1,   1),
-    lyric("into a fire.",                       8080,   1.8,  0),
-    lyric(5,                                    8080,   0,    2),  # ASCII 6
-    lyric("As they burned it hurt because",     8430,   -1,   0),
-    lyric(6,                                    8690,   0,    2),  # ASCII 7
-    lyric("I was so happy for you!",            8760,   1.67, 0),
-    lyric("Now, these points of data",          8960,   -1,   0),
-    lyric("make a beautiful line.",             9167,   -1,   0),
-    lyric("And we're out of beta.",             9357,   -1,   0),
-    lyric("We're releasing on time.",           9560,   -1,   0),
-    lyric(4,                                    9700,   0,    2),  # ASCII 5
-    lyric("So I'm GLaD I got burned.",          9770,   -1,   0),
-    lyric(2,                                    9913,   0,    2),  # ASCII 3
-    lyric("Think of all the things we learned", 9983,   -1,   0),
-    lyric(0,                                    10120,  0,    2),  # ASCII 1
-    lyric("For the people who are",             10190,  -1,   0),
-    lyric("Still alive.",                       10327,  1.8,  0),
+    Lyric(0, 5353,
+          0, 3),  # Clear lyrics
+    Lyric("Forms FORM-55551-5:", 5413, -1, 0),
+    Lyric("Personnel File Addendum:", 5477, 1.13, 0),
+    Lyric("", 5650, 0.05, 0),
+    Lyric("Dear <<Subject Name Here>>,", 5650, -1, 0),
+    Lyric("", 5900, -1, 0),
+    Lyric("I'm not even angry.", 5900, 1.86, 0),
+    Lyric("I'm being ", 6320, -1, 1),
+    Lyric("so ", 6413, -1, 1),
+    Lyric("sincere right now.", 6470, 1.9, 0),
+    Lyric("Even though you broke ", 6827, -1, 1),
+    Lyric(3, 7020, 0, 2),  # ASCII 4
+    Lyric("my heart.", 7090, -1, 0),
+    Lyric("And killed me.", 7170, 1.43, 0),
+    Lyric(4, 7300, 0, 2),  # ASCII 5
+    Lyric("And tore me to pieces.", 7500, 1.83, 0),
+    Lyric("And threw every piece ", 7900, -1, 1),
+    Lyric("into a fire.", 8080, 1.8, 0),
+    Lyric(5, 8080, 0, 2),  # ASCII 6
+    Lyric("As they burned it hurt because", 8430, -1, 0),
+    Lyric(6, 8690, 0, 2),  # ASCII 7
+    Lyric("I was so happy for you!", 8760, 1.67, 0),
+    Lyric("Now, these points of data", 8960, -1, 0),
+    Lyric("make a beautiful line.", 9167, -1, 0),
+    Lyric("And we're out of beta.", 9357, -1, 0),
+    Lyric("We're releasing on time.", 9560, -1, 0),
+    Lyric(4, 9700, 0, 2),  # ASCII 5
+    Lyric("So I'm GLaD I got burned.", 9770, -1, 0),
+    Lyric(2, 9913, 0, 2),  # ASCII 3
+    Lyric("Think of all the things we learned", 9983, -1, 0),
+    Lyric(0, 10120, 0, 2),  # ASCII 1
+    Lyric("For the people who are", 10190, -1, 0),
+    Lyric("Still alive.", 10327, 1.8, 0),
 
     ##########  Page 3  ##########
-    lyric(0,                                    10603,
-          0,    3),  # Clear lyrics
-    lyric("Forms FORM-55551-6:",                10663,  -1,   0),
-    lyric("Personnel File Addendum Addendum:",  10710,  1.36, 0),
-    lyric("",                                   10710,  0.05, 0),
-    lyric("One last thing:",                    10910,  -1,   0),
-    lyric("",                                   11130,  0.05, 0),
-    lyric("Go ahead and leave ",                11130,  -1,   1),
-    lyric("me.",                                11280,  0.5,  0),
-    lyric("I think I'd prefer to stay ",        11507,  -1,   1),
-    lyric("inside.",                            11787,  1.13, 0),
-    lyric("Maybe you'll find someone else",     12037,  -1,   0),
-    lyric("To help you.",                       12390,  1.23, 0),
-    lyric("Maybe Black ",                       12737,  -1,   1),
-    lyric(7,                                    12787,  0,    2),  # ASCII 8
-    lyric("Mesa...",                            12857,  2.7,  0),
-    lyric("THAT WAS A JOKE.",                   13137,  1.46, 1),
-    lyric(" FAT CHANCE.",                       13387,  1.1,  0),
-    lyric("Anyway, ",                           13620,  -1,   1),
-    lyric(8,                                    13670,  0,    2),  # ASCII 9
-    lyric("this cake is great.",                13740,  -1,   0),
-    lyric("It's so delicious and moist.",       13963,  -1,   0),
-    lyric(9,                                    14123,  0,    2),  # ASCII 10
-    lyric("Look at me still talking",           14193,  -1,   0),
-    lyric(1,                                    14320,  0,    2),  # ASCII 2
-    lyric("when there's science to do.",        14390,  -1,  0),
-    lyric(0,                                    14527,  0,    2),  # ASCII 1
-    lyric("When I look out there,",             14597,  -1,   0),
-    lyric("It makes me GLaD I'm not you.",      14767,  -1,   0),
-    lyric(2,                                    14913,  0,    2),  # ASCII 3
-    lyric("I've experiments to run.",           14983,  -1,   0),
-    lyric(4,                                    15120,  0,    2),  # ASCII 5
-    lyric("There is research to be done.",      15190,  -1,   0),
-    lyric(0,                                    15320,  0,    2),  # ASCII 1
-    lyric("On the people who are",              15390,  -1,   0),
-    lyric("still alive",                        15553,  2.0,  1),
+    Lyric(0, 10603,
+          0, 3),  # Clear lyrics
+    Lyric("Forms FORM-55551-6:", 10663, -1, 0),
+    Lyric("Personnel File Addendum Addendum:", 10710, 1.36, 0),
+    Lyric("", 10710, 0.05, 0),
+    Lyric("One last thing:", 10910, -1, 0),
+    Lyric("", 11130, 0.05, 0),
+    Lyric("Go ahead and leave ", 11130, -1, 1),
+    Lyric("me.", 11280, 0.5, 0),
+    Lyric("I think I'd prefer to stay ", 11507, -1, 1),
+    Lyric("inside.", 11787, 1.13, 0),
+    Lyric("Maybe you'll find someone else", 12037, -1, 0),
+    Lyric("To help you.", 12390, 1.23, 0),
+    Lyric("Maybe Black ", 12737, -1, 1),
+    Lyric(7, 12787, 0, 2),  # ASCII 8
+    Lyric("Mesa...", 12857, 2.7, 0),
+    Lyric("THAT WAS A JOKE.", 13137, 1.46, 1),
+    Lyric(" FAT CHANCE.", 13387, 1.1, 0),
+    Lyric("Anyway, ", 13620, -1, 1),
+    Lyric(8, 13670, 0, 2),  # ASCII 9
+    Lyric("this cake is great.", 13740, -1, 0),
+    Lyric("It's so delicious and moist.", 13963, -1, 0),
+    Lyric(9, 14123, 0, 2),  # ASCII 10
+    Lyric("Look at me still talking", 14193, -1, 0),
+    Lyric(1, 14320, 0, 2),  # ASCII 2
+    Lyric("when there's science to do.", 14390, -1, 0),
+    Lyric(0, 14527, 0, 2),  # ASCII 1
+    Lyric("When I look out there,", 14597, -1, 0),
+    Lyric("It makes me GLaD I'm not you.", 14767, -1, 0),
+    Lyric(2, 14913, 0, 2),  # ASCII 3
+    Lyric("I've experiments to run.", 14983, -1, 0),
+    Lyric(4, 15120, 0, 2),  # ASCII 5
+    Lyric("There is research to be done.", 15190, -1, 0),
+    Lyric(0, 15320, 0, 2),  # ASCII 1
+    Lyric("On the people who are", 15390, -1, 0),
+    Lyric("still alive", 15553, 2.0, 1),
 
     ##########  Page 4  ##########
-    lyric(0,                                    15697,
-          0,    3),  # Clear lyrics
-    lyric("",                                   15757,  0.05, 0),
-    lyric("",                                   15757,  0.05, 0),
-    lyric("",                                   15757,  0.05, 0),
-    lyric("PS: And believe me I am",            15757,  -1,   0),
-    lyric("still alive.",                       15960,  1.13, 0),
-    lyric("PPS: I'm doing Science and I'm",     16150,  -1,   0),
-    lyric("still alive.",                       16363,  1.13, 0),
-    lyric("PPPS: I feel FANTASTIC and I'm",     16550,  -1,   0),
-    lyric("still alive.",                       16760,  -1,   0),
-    lyric("",                                   16860,  -1,   0),
-    lyric("FINAL THOUGH:",                      16860,  -1,   0),
-    lyric("While you're dying I'll be",         16993,  -1,   0),
-    lyric("still alive.",                       17157,  -1,   0),
-    lyric("",                                   17277,  -1,   0),
-    lyric("FINAL THOUGH PS:",                   17277,  -1,   0),
-    lyric("And when you're dead I will be",     17367,  -1,   0),
-    lyric("still alive.",                       17550,  1.13, 0),
-    lyric("",                                   17550,  -1,   0),
-    lyric("",                                   17550,  0.05, 0),
-    lyric("STILL ALIVE",                        17760,  1.13, 0),
-    lyric(0,                                    17900,
-          0,    3),  # Clear lyrics
-    lyric(0,                                    18500,
-          0,    3),  # Clear lyrics
-    lyric("ENDENDENDENDENDENDENDEND",           18500,  0.05, 9)]
+    Lyric(0, 15697,
+          0, 3),  # Clear lyrics
+    Lyric("", 15757, 0.05, 0),
+    Lyric("", 15757, 0.05, 0),
+    Lyric("", 15757, 0.05, 0),
+    Lyric("PS: And believe me I am", 15757, -1, 0),
+    Lyric("still alive.", 15960, 1.13, 0),
+    Lyric("PPS: I'm doing Science and I'm", 16150, -1, 0),
+    Lyric("still alive.", 16363, 1.13, 0),
+    Lyric("PPPS: I feel FANTASTIC and I'm", 16550, -1, 0),
+    Lyric("still alive.", 16760, -1, 0),
+    Lyric("", 16860, -1, 0),
+    Lyric("FINAL THOUGH:", 16860, -1, 0),
+    Lyric("While you're dying I'll be", 16993, -1, 0),
+    Lyric("still alive.", 17157, -1, 0),
+    Lyric("", 17277, -1, 0),
+    Lyric("FINAL THOUGH PS:", 17277, -1, 0),
+    Lyric("And when you're dead I will be", 17367, -1, 0),
+    Lyric("still alive.", 17550, 1.13, 0),
+    Lyric("", 17550, -1, 0),
+    Lyric("", 17550, 0.05, 0),
+    Lyric("STILL ALIVE", 17760, 1.13, 0),
+    Lyric(0, 17900,
+          0, 3),  # Clear lyrics
+    Lyric(0, 18500,
+          0, 3),  # Clear lyrics
+    Lyric("ENDENDENDENDENDENDENDEND", 18500, 0.05, 9)]
 
 credits = r""">LIST PERSONNEL
             
@@ -728,7 +728,7 @@ IN THIS
 ENRICHMENT CENTER ACTIVITY!!"""
 
 
-def drawAA(x, y, ch):
+def drawaa(x, y, ch):
     for dy in range(ascii_art_height):
         move(x, y + dy)
         print(ascii_art[ch][dy], end='')
@@ -736,7 +736,7 @@ def drawAA(x, y, ch):
         time.sleep(0.01)
 
 
-def drawFrame():
+def draw_frame():
     move(1, 1)
     _print(' ' + '-' * lyric_width + '  ' + '-' * credits_width + ' ', not is_vt)
     for _ in range(credits_height):
@@ -750,28 +750,28 @@ def drawFrame():
     time.sleep(1)
 
 
-def clearLyrics():
+def clear_lyrics():
     move(1, 2)
     for _ in range(lyric_height):
         _print('|' + ' ' * lyric_width)
     move(2, 2)
 
 
-def drawLyrics(str, x, y, interval, newline):
+def draw_lyrics(str, x, y, interval, newline):
     move(x + 2, y + 2)
     for ch in str:
         _print(ch, False)
         sys.stdout.flush()
         time.sleep(interval)
         x = x + 1
-    if(newline):
+    if newline:
         x = 0
         y = y + 1
         move(x + 2, y + 2)
     return x
 
 
-class thread_credits (threading.Thread):
+class ThreadCredits (threading.Thread):
     def run(self):
         global print_lock
         global cursor_x, cursor_y
@@ -820,7 +820,7 @@ class thread_credits (threading.Thread):
 ################# Main ################
 begin_draw()
 clear()
-drawFrame()
+draw_frame()
 move(2, 2)
 time.sleep(1)
 
@@ -831,45 +831,39 @@ currentCredit = 0
 x = 0
 y = 0
 
-while(lyrics[currentLyric].mode != 9):
+while lyrics[currentLyric].mode != 9:
     currentTime = time.time() * 100 - startTime
 
-    if(currentTime > lyrics[currentLyric].time):
+    if currentTime > lyrics[currentLyric].time:
 
-        if(lyrics[currentLyric].mode <= 1 or lyrics[currentLyric].mode >= 5):
+        if lyrics[currentLyric].mode <= 1 or lyrics[currentLyric].mode >= 5:
             wordCount = len(lyrics[currentLyric].words)
-        if(wordCount == 0):
+        if wordCount == 0:
             wordCount = 1
 
-        if(lyrics[currentLyric].interval < 0):
+        if lyrics[currentLyric].interval < 0:
             interval = (lyrics[currentLyric + 1].time -
                         lyrics[currentLyric].time) / 100.0 / wordCount
         else:
             interval = lyrics[currentLyric].interval / wordCount
 
-        if(lyrics[currentLyric].mode == 0):
-            x = drawLyrics(lyrics[currentLyric].words,
-                           x, y,
-                           interval,
-                           True)
+        if lyrics[currentLyric].mode == 0:
+            x = draw_lyrics(lyrics[currentLyric].words, x, y, interval, True)
             y = y + 1
-        elif(lyrics[currentLyric].mode == 1):
-            x = drawLyrics(lyrics[currentLyric].words,
-                           x, y,
-                           interval,
-                           False)
-        elif(lyrics[currentLyric].mode == 2):
-            drawAA(ascii_art_x, ascii_art_y, lyrics[currentLyric].words)
+        elif lyrics[currentLyric].mode == 1:
+            x = draw_lyrics(lyrics[currentLyric].words, x, y, interval, False)
+        elif lyrics[currentLyric].mode == 2:
+            drawaa(ascii_art_x, ascii_art_y, lyrics[currentLyric].words)
             move(x + 2, y + 2)
-        elif(lyrics[currentLyric].mode == 3):
-            clearLyrics()
+        elif lyrics[currentLyric].mode == 3:
+            clear_lyrics()
             x = 0
             y = 0
-        elif(lyrics[currentLyric].mode == 4):
+        elif lyrics[currentLyric].mode == 4:
             if enable_sound:
                 playsound.playsound(str(Path.cwd() / 'sa1.mp3'), False)
-        elif(lyrics[currentLyric].mode == 5):
-            th_credit = thread_credits()
+        elif lyrics[currentLyric].mode == 5:
+            th_credit = ThreadCredits()
             th_credit.daemon = True
             th_credit.start()
         currentLyric = currentLyric + 1
