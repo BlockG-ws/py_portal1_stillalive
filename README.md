@@ -82,10 +82,11 @@ Or you can run the original `still_alive_credit_legacy.py` script, just replace 
 
 ## Linux 运行效果 / Snapshot on Linux
 
-![](still_alive_linux.jpg)
+![](assets/still_alive_arch_kitty.png)
+![](assets/still_alive_linux.jpg)
 
 ## 演示视频 / demonstration video
 
-![](still_alive_informer213.jpg)
+![](assets/still_alive_informer213.jpg)
 
 <https://www.bilibili.com/video/BV1cU4y1A7ud>
