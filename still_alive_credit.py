@@ -54,7 +54,8 @@ enable_color = not is_vt or int(re.search(r"\d+", is_vt.group()).group()) >= 241
 enable_sound = '--no-sound' not in sys.argv
 
 if enable_sound:
-    import playsound
+    from boombox import BoomBox
+
 
 term_columns, term_lines = 0, 0
 if is_vt:
@@ -861,7 +862,8 @@ while lyrics[currentLyric].mode != 9:
             y = 0
         elif lyrics[currentLyric].mode == 4:
             if enable_sound:
-                playsound.playsound(str(Path.cwd() / 'sa1.mp3'), False)
+                boombox = BoomBox(str(Path.cwd() / 'sa1.mp3'))  # load the audo
+                boombox.play()  # hit the ⏯ button
         elif lyrics[currentLyric].mode == 5:
             th_credit = ThreadCredits()
             th_credit.daemon = True
