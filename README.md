@@ -2,7 +2,7 @@
 
 ## 使用条件
 
-`still_alive_credit_legacy.py` 脚本使用 Python 3（推荐使用 python 3.9，如果没有，推荐使用 `micromamba` 并用 `env.yml` 创建一个虚拟环境），以下提到的 `pip` 多数情况下对应 `pip3` 命令
+原有的 `still_alive_credit_legacy.py` 脚本使用 Python 3（推荐使用 python 3.9，如果没有，推荐使用 `micromamba` 并用 `env.yml` 创建一个虚拟环境），以下提到的 `pip` 多数情况下对应 `pip3` 命令
 以调用 Python 3 的 `pip` 组件。
 
 Windows 下需要使用 Windows terminal，MinTTY 等支持 ANSI 终端转义序列的终端模拟器。
@@ -10,6 +10,10 @@ Windows 下需要使用 Windows terminal，MinTTY 等支持 ANSI 终端转义序
 为了播放音乐，需要用 `pip` 安装 `playsound`。`playsound` 在 Linux 下依赖 
 `pygobject` 包（可以使用 pip 安装它）。在 MacOS 下还需要用 `pip` 安装 `PyObjC`。
 
+
+`still_alive_credit.py` 修改为了使用 `boombox` 播放音乐，不再依赖 `playsound`，能够更好兼容新版本（3.10+）的 Python。
+
+使用 `pip` 安装 `boombox` 即可。
 ## 使用方法
 
 在当前目录下执行：
@@ -31,6 +35,8 @@ TERM=vt100 python3 still_alive_credit.py
 python3 still_alive_credit.py --no-sound
 ```
 
+或者可以运行原有的 `still_alive_credit_legacy.py` 脚本，只需要替换文件名即可。
+
 ---
 
 A demo of the credit song 'Still Alive' of Portal 1 written in Python, running
@@ -45,9 +51,10 @@ In Windows system, you need a teminal emulator supporting ANSI escape sequences
 like Windows Terminal, MinTTY, Cmder or ConEmu。
 
 For playing music, you need install `playsound` with `pip`. In Linux `playsound`
-depends on `pygobject`(`python-gobject` for systemwide install) (you can use pip to install). In MacOS you also need
+depends on `pygobject`(`python-gobject` for systemwide install) (you can use pip to install this). In macOS, you also need
 to use `pip` to install `PyObjC`.
 
+`still_alive_credit.py` is modified to use `boombox` to play music, no longer depends on `playsound`, and is more compatible with newer versions of Python (3.10+).
 ## Usage
 
 In current directory, execute:
@@ -70,6 +77,8 @@ case, the script only depends on Python standard library:
 ```
 python3 still_alive_credit.py --no-sound
 ```
+
+Or you can run the original `still_alive_credit_legacy.py` script, just replace the filename.
 
 ## Linux 运行效果 / Snapshot on Linux
 
