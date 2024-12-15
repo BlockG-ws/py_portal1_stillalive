@@ -53,6 +53,8 @@ enable_color = not is_vt or int(re.search(r"\d+", is_vt.group()).group()) >= 241
 
 enable_sound = '--no-sound' not in sys.argv
 
+neuro_version = '--heart' in sys.argv
+
 if enable_sound:
     from boombox import BoomBox
 
@@ -862,8 +864,12 @@ while lyrics[currentLyric].mode != 9:
             y = 0
         elif lyrics[currentLyric].mode == 4:
             if enable_sound:
-                boombox = BoomBox(str(Path.cwd() / 'sa1.mp3'))  # load the audo
-                boombox.play()  # hit the ⏯ button
+                if neuro_version:
+                    boombox = BoomBox(str(Path.cwd() / 'sa1-neuro.mp3'))  # load the audo
+                    boombox.play()  # hit the ⏯ button
+                else:
+                    boombox = BoomBox(str(Path.cwd() / 'sa1.mp3'))  # load the audo
+                    boombox.play()  # hit the ⏯ button
         elif lyrics[currentLyric].mode == 5:
             th_credit = ThreadCredits()
             th_credit.daemon = True
