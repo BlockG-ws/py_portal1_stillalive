@@ -90,3 +90,10 @@ Or you can run the original `still_alive_credit_legacy.py` script, just replace 
 ![](assets/still_alive_informer213.jpg)
 
 <https://www.bilibili.com/video/BV1cU4y1A7ud>
+
+## License
+The code is under GNU General Public License v3.0.
+
+The music *Still Alive* is under its own license, see [Video Policy](https://www.valvesoftware.com/videopolicy.html), and the copyright of the cover by neuro-sama belongs to the original author ([Audio clip link](https://www.bilibili.com/video/BV16Z421K7nt/)).
+
+These music shouldn't be used for commercial purposes.
